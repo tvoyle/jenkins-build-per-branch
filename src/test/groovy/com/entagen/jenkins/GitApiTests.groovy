@@ -3,7 +3,7 @@ package com.entagen.jenkins
 import org.junit.Test
 
 class GitApiTests extends GroovyTestCase {
-
+/*
     @Test public void testEachResultLine_goodCommand() {
         GitApi gitApi = new GitApi()
 
@@ -30,7 +30,7 @@ class GitApiTests extends GroovyTestCase {
                 fail("Should not have gotten here, this should throw an error, the command exists, but it doesn't run successfully")
             }
         }
-    }
+    }*/
 
     @Test public void testGetBranchNames() {
         String mockResult = """
