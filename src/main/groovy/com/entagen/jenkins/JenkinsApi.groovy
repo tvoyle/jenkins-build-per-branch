@@ -108,7 +108,7 @@ class JenkinsApi {
         println "creating view - viewName:${viewName}, nestedView:${nestedWithinView}"
         post(buildViewPath("createView", nestedWithinView), body)
 
-        body = [useincluderegex: 'on', includeRegex: ".*${branchView.safeBranchName}", name: viewName, json: '{"name": "' + viewName + '","useincluderegex": {"includeRegex": "' + branchView.templateJobPrefix + '.*' + branchView.safeBranchName + '"},' + VIEW_COLUMNS_JSON + '}']
+        body = [useincluderegex: 'on', includeRegex: "${branchView.viewRegex}", name: viewName, json: '{"name": "' + viewName + '","useincluderegex": {"includeRegex": "' + branchView.templateJobPrefix + '.*' + branchView.safeBranchName + '"},' + VIEW_COLUMNS_JSON + '}']
         println "configuring view ${viewName}"
         post(buildViewPath("configSubmit", nestedWithinView, viewName), body)
     }
